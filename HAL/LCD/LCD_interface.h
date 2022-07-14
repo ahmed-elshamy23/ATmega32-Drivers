@@ -13,6 +13,8 @@
 #define entryMode 0x06
 #define displayOn 0x0F
 #define displayOff 0x08
+#define displayShiftLeft 0x1C
+#define displayShiftRight 0x18
 #define cursorBlinkOff 0x0E
 #define cursorOff 0x0C
 #define cursorShiftLeft 0x10
