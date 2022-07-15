@@ -3,7 +3,7 @@
 #include "KPD_interface.h"
 #include <util/delay.h>
 
-u8 KPD_BUTTONS[4][4] = {{7, 8, 9, '/'}, {4, 5, 6, '*'}, {1, 2, 3, '-'}, {'c', 0, '=', '+'}};
+u8 KPD_KEYS[4][4] = {{'7', '8', '9', '/'}, {'4', '5', '6', '*'}, {'1', '2', '3', '-'}, {'c', '0', '=', '+'}};
 
 void KPD_voidInit(u8 portNumber)
 {
@@ -20,7 +20,7 @@ void KPD_voidInit(u8 portNumber)
     DIO_voidSetPortValue(portNumber, ALL_OUTPUT);
 }
 
-u8 KPD_u8GetPresseddKey(u8 portNumber)
+u8 KPD_u8GetPressedKey(u8 portNumber)
 {
     u8 row, col, pressed = NOT_PRESSED;
     for (row = ROW_START; row <= ROW_END; row++)
@@ -30,11 +30,11 @@ u8 KPD_u8GetPresseddKey(u8 portNumber)
         {
             if (DIO_u8GetPinValue(portNumber, col) == LOW)
             {
-                pressed = KPD_BUTTONS[row - ROW_START][col - COL_START];
+                pressed = KPD_KEYS[row - ROW_START][col - COL_START];
                 _delay_ms(10);
             }
-            DIO_voidSetPinValue(portNumber, row, HIGH);
         }
+        DIO_voidSetPinValue(portNumber, row, HIGH);
     }
     return pressed;
 }
