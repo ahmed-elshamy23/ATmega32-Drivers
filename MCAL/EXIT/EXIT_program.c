@@ -1,18 +1,15 @@
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
 #include "EXIT_interface.h"
+#include "GIE_interface.h"
 
 void (*callBackINT0)(void) = NULL;
 void (*callBackINT1)(void) = NULL;
 void (*callBackINT2)(void) = NULL;
 
-void EXIT_voidEnableGlobalInterrupt()
-{
-    SET_BIT(SREG, GLOBAL_INTERRUPT);
-}
-
 void EXIT_voidInit(u8 peripheral, u8 mode)
 {
+    GIE_voidEnable();
     switch (peripheral)
     {
     case INT0:

@@ -28,7 +28,7 @@ void LCD_voidSendCommand(u8 command);
 
 void LCD_voidSendChar(u8 Char);
 
-void LCD_voidSendNumber(u16 number);
+void LCD_voidSendNumber(s16 number);
 
 void LCD_voidSendString(u8 *string);
 

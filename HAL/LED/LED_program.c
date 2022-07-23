@@ -5,6 +5,7 @@
 void LED_voidInit(u8 portNumber, u8 pinNumber)
 {
     DIO_voidSetPinDirection(portNumber, pinNumber, OUTPUT);
+    DIO_voidSetPinValue(portNumber, pinNumber, LOW);
 }
 
 void LED_voidOnOff(u8 portNumber, u8 pinNumber, u8 value)

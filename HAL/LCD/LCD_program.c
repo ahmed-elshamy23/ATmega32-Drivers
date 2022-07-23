@@ -75,25 +75,39 @@ void LCD_voidSendString(u8 *string)
     }
 }
 
-void LCD_voidSendNumber(u16 number)
+void LCD_voidSendNumber(s16 number)
 {
-    u8 numOfDigits = 0, i;
-    u16 n = number;
-    while (n > 0)
+    s8 numOfDigits = 0, i = 0;
+    if (number == 0)
     {
-        numOfDigits++;
-        n /= 10;
+        LCD_voidSendChar('0');
     }
-    for (i = numOfDigits - 1; i >= 0; i--)
+    else
     {
-        u8 j;
-        u16 pow = 1;
-        for (j = 1; j <= i; j++)
+        if (number < 0)
         {
-            pow *= 10;
+            LCD_voidSendChar('-');
+            number *= -1;
         }
-        LCD_voidSendChar(ASCII_NUMBERS_START + number / pow);
-        number %= pow;
+        u16 n = number;
+        while (n)
+        {
+            numOfDigits++;
+            n /= 10;
+        }
+        for (i = numOfDigits - 1; i >= 0; i--)
+        {
+            u8 j = 1;
+            u16 pow = 1;
+            for (; j <= i; j++)
+            {
+                pow *= 10;
+            }
+            LCD_voidSendChar(ASCII_NUMBERS_START + number / pow);
+            if (i == 0)
+                break;
+            number %= pow;
+        }
     }
 }
 
