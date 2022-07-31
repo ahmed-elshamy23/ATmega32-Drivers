@@ -1,5 +1,6 @@
 #include "STD_TYPES.h"
 #include "DIO_interface.h"
+#include "KPD_config.h"
 #include "KPD_interface.h"
 #include <util/delay.h>
 

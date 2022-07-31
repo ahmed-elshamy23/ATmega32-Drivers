@@ -137,18 +137,27 @@ void ADC_voidStartConversion()
     SET_BIT(ADCSRA, ADSC);
 }
 
-u16 ADC_u16GetResult()
+f32 ADC_f32GetResult()
 {
-    u16 result = 0;
-    if (GET_BIT(ADCSRA, ADATE) && AUTO_TRIGGER_MODE == FREE_RUNNING)
-        while (!GET_BIT(ADCSRA, ADIF))
-            ;
-#if ADC_ADJUST == RIGHT_ADJUST
-    result = ADCLH;
+    f32 result = 0;
+    f32 ref = 0;
+    while (!GET_BIT(ADCSRA, ADIF))
+        ;
+#if REFERENCE == AVCC
+    ref = VCC_VOLTAGE;
+#elif REFERENCE == AREF
+    ref = AREF_VOLTAGE;
 #else
-    result = (ADCLH >> 6);
+    ref = VREF_VOLTAGE;
 #endif
+#if ADC_ADJUST == LEFT_ADJUST
+    result = (ADCLH >> 6) * ref / 1024;
+#else
+    result = ADCLH * ref / 1024;
+#endif
+#if ADC_MODE == SINGLE_CONVERSION
     SET_BIT(ADCSRA, ADIF);
+#endif
     return result;
 }
 
@@ -163,7 +172,7 @@ void ADC_voidSetCallback(void (*ptr)())
     callback = ptr;
 }
 
-void __vector_16(void)
+void ADC_VECT(void)
 {
     if (callback != NULL)
     {

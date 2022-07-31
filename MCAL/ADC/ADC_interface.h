@@ -60,6 +60,8 @@
 #define TIMER1_OVERFLOW 6
 #define TIMER1_CAPTURE 7
 
+#define ADC_VECT __vector_16
+
 #define NULL 0
 
 void ADC_voidInit(u8 channel);
@@ -68,10 +70,10 @@ void ADC_voidStartConversion();
 
 void ADC_voidInterruptEnable();
 
-u16 ADC_u16GetResult();
-
-void __vector_16(void) __attribute__((signal));
+f32 ADC_f32GetResult();
 
 void ADC_voidSetCallback(void (*ptr)());
+
+void ADC_VECT(void) __attribute__((signal));
 
 #endif

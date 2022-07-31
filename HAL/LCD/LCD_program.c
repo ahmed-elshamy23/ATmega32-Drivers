@@ -75,7 +75,7 @@ void LCD_voidSendString(u8 *string)
     }
 }
 
-void LCD_voidSendNumber(s16 number)
+void LCD_voidSendNumber(s32 number)
 {
     s8 numOfDigits = 0, i = 0;
     if (number == 0)
@@ -89,7 +89,7 @@ void LCD_voidSendNumber(s16 number)
             LCD_voidSendChar('-');
             number *= -1;
         }
-        u16 n = number;
+        u32 n = number;
         while (n)
         {
             numOfDigits++;
@@ -98,7 +98,7 @@ void LCD_voidSendNumber(s16 number)
         for (i = numOfDigits - 1; i >= 0; i--)
         {
             u8 j = 1;
-            u16 pow = 1;
+            u32 pow = 1;
             for (; j <= i; j++)
             {
                 pow *= 10;
@@ -109,6 +109,19 @@ void LCD_voidSendNumber(s16 number)
             number %= pow;
         }
     }
+}
+
+void LCD_voidSendFloat(f32 number)
+{
+    LCD_voidSendNumber(number);
+    LCD_voidSendChar('.');
+    number -= (u32)(number);
+    while ((u8)(number * 10) == 0)
+    {
+        LCD_voidSendChar('0');
+        number *= 10;
+    }
+    LCD_voidSendNumber(number * 1000);
 }
 
 void LCD_voidSetCursorPosition(u8 position)

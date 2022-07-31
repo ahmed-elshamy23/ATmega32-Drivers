@@ -82,7 +82,7 @@ void EXIT_voidSetCallbackINT2(void (*ptr)())
     callBackINT2 = ptr;
 }
 
-void __vector_1(void)
+void INT0_VECT(void)
 {
     if (callBackINT0 != NULL)
     {
@@ -90,7 +90,7 @@ void __vector_1(void)
     }
 }
 
-void __vector_2(void)
+void INT1_VECT(void)
 {
     if (callBackINT1 != NULL)
     {
@@ -98,7 +98,7 @@ void __vector_2(void)
     }
 }
 
-void __vector_3(void)
+void INT2_VECT(void)
 {
     if (callBackINT2 != NULL)
     {

@@ -27,6 +27,10 @@
 #define LOW_LEVEL 2
 #define ANY_CHANGE 3
 
+#define INT0_VECT __vector_1
+#define INT1_VECT __vector_2
+#define INT2_VECT __vector_3
+
 #define NULL 0
 
 void EXIT_voidInit(u8 peripheral, u8 mode);
@@ -37,10 +41,10 @@ void EXIT_voidSetCallbackINT1(void (*ptr)());
 
 void EXIT_voidSetCallbackINT2(void (*ptr)());
 
-void __vector_1(void) __attribute__((signal));
+void INT0_VECT(void) __attribute__((signal));
 
-void __vector_2(void) __attribute__((signal));
+void INT1_VECT(void) __attribute__((signal));
 
-void __vector_3(void) __attribute__((signal));
+void INT2_VECT(void) __attribute__((signal));
 
 #endif
