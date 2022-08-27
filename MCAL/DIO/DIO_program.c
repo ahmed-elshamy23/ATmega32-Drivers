@@ -1,6 +1,7 @@
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
 #include "DIO_interface.h"
+#include "DIO_private.h"
 
 void DIO_voidSetPinDirection(u8 portNumber, u8 pinNumber, u8 direction)
 {

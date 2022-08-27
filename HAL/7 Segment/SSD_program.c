@@ -1,5 +1,6 @@
 #include "STD_TYPES.h"
 #include "DIO_interface.h"
+#include "DIO_private.h"
 #include "SSD_config.h"
 #include "SSD_interface.h"
 #include "util/delay.h"

@@ -2,7 +2,7 @@
 #include "DIO_interface.h"
 #include "BTN_interface.h"
 
-u8 BTN_voidInit(u8 portNumber, u8 pinNumber)
+void BTN_voidInit(u8 portNumber, u8 pinNumber)
 {
     DIO_voidSetPinDirection(portNumber, pinNumber, INPUT);
     DIO_voidSetPinValue(portNumber, pinNumber, HIGH);

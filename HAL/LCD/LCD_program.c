@@ -1,7 +1,9 @@
 #include "STD_TYPES.h"
 #include "DIO_interface.h"
+#include "DIO_private.h"
 #include "LCD_config.h"
 #include "LCD_interface.h"
+#include "LCD_private.h"
 #include <util/delay.h>
 
 void LCD_voidSendCommand(u8 command)

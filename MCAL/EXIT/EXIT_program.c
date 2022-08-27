@@ -1,6 +1,7 @@
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
 #include "EXIT_interface.h"
+#include "EXIT_private.h"
 #include "GIE_interface.h"
 
 void (*callBackINT0)(void) = NULL;

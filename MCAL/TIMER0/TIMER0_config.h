@@ -1,0 +1,10 @@
+#ifndef TIMER0_CONFIG_H
+#define TIMER0_CONFIG_H
+
+#define TIMER0_MODE PWM_MODE
+
+#define OC0_MODE OC0_NONINVERTING
+
+#define TIMER0_PRESCALER 8
+
+#endif
