@@ -126,11 +126,14 @@ void LCD_voidSendFloat(f32 number)
     LCD_voidSendNumber(number * 1000);
 }
 
-void LCD_voidSetCursorPosition(u8 position)
+void LCD_voidSetCursorPosition(u8 row, u8 col)
 {
-    u8 i;
-    for (i = 1; i <= position; i++)
+    switch (row)
     {
-        LCD_voidSendCommand(cursorShiftRight);
+    case 0:
+        LCD_voidSendCommand(128 + col);
+        break;
+    default:
+        LCD_voidSendCommand(128 + 64 + col);
     }
 }

@@ -15,6 +15,6 @@ void LCD_voidSendFloat(f32 number);
 
 void LCD_voidSendString(u8 *string);
 
-void LCD_voidSetCursorPosition(u8 position);
+void LCD_voidSetCursorPosition(u8 row, u8 col);
 
 #endif

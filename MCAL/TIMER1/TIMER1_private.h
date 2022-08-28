@@ -80,6 +80,9 @@
 #define COMP_B_INTERRUPT 2
 #define OVF_INTERRUPT 3
 
+#define RISING_EDGE 0
+#define FALLING_EDGE 1
+
 #define TIMER1_CAPTURE_ISR __vector_6
 #define TIMER1_COMP_A_ISR __vector_7
 #define TIMER1_COMP_B_ISR __vector_8

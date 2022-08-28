@@ -254,6 +254,33 @@ void TIMER1_voidGeneratePWM(u8 compareUnit, u32 frequency, f32 dutyCycle)
     TIMER1_voidStart();
 }
 
+void TIMER1_voidEdgeSelectICU(u8 edge)
+{
+    switch (edge)
+    {
+    case RISING_EDGE:
+        SET_BIT(TCCR1B, ICES1);
+        break;
+    default:
+        CLR_BIT(TCCR1B, ICES1);
+    }
+}
+
+void TIMER1_voidEnableNoiseCancelerICU()
+{
+    SET_BIT(TCCR1B, ICNC1);
+}
+
+void TIMER1_voidDisableNoiseCancelerICU()
+{
+    CLR_BIT(TCCR1B, ICNC1);
+}
+
+u16 TIMER1_u16ReadICR()
+{
+    return ICR1;
+}
+
 void TIMER1_voidSetTimerValue(u16 timerValue)
 {
     TCNT1 = timerValue;
@@ -338,6 +365,24 @@ void TIMER1_voidInterruptEnable(u8 interrupt)
         break;
     default:
         SET_BIT(TIMSK, TICIE1);
+    }
+}
+
+void TIMER1_voidInterruptDisable(u8 interrupt)
+{
+    switch (interrupt)
+    {
+    case OVF_INTERRUPT:
+        CLR_BIT(TIMSK, TOIE1);
+        break;
+    case COMP_B_INTERRUPT:
+        CLR_BIT(TIMSK, OCIE1B);
+        break;
+    case COMP_A_INTERRUPT:
+        CLR_BIT(TIMSK, OCIE1A);
+        break;
+    default:
+        CLR_BIT(TIMSK, TICIE1);
     }
 }
 

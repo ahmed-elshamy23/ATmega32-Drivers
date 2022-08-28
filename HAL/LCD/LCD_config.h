@@ -7,7 +7,7 @@
 #define RW 1
 #define E 2
 
-#define PORT_DATA PORTD
+#define PORT_DATA PORTB
 #define PORT_CONTROL PORTC
 
 #endif
