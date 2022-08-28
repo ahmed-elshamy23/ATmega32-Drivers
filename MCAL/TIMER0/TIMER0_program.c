@@ -164,7 +164,7 @@ void TIMER0_voidDelay(f32 delayTime)
     f32 overflowTime = 256 * tickTime;
     if (delayTime >= overflowTime)
     {
-        u8 numOfOverflows = delayTime / overflowTime, c = 0;
+        u32 numOfOverflows = delayTime / overflowTime, c = 0;
         f32 fraction = delayTime - numOfOverflows * overflowTime;
         TIMER0_voidSetTimerValue(0);
         while (c < numOfOverflows)
