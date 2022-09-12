@@ -1,5 +1,6 @@
 #include "STD_TYPES.h"
 #include "ADC_interface.h"
+#include "ADC_private.h"
 #include "LDR_interface.h"
 
 void LDR_voidInit(u8 ADC_channel)

@@ -1,5 +1,6 @@
 #include "STD_TYPES.h"
 #include "ADC_interface.h"
+#include "ADC_private.h"
 #include "LM35_interface.h"
 
 void LM35_voidInit(u8 ADC_channel)
