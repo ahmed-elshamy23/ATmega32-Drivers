@@ -1,4 +1,5 @@
 #include "DIO_interface.h"
+#include "DIO_private.h"
 #include "BUZZ_interface.h"
 
 void BUZZ_voidInit(u8 portNumber, u8 pinNumber)

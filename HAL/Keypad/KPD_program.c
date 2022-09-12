@@ -33,7 +33,7 @@ u8 KPD_u8GetPressedKey(u8 portNumber)
             if (DIO_u8GetPinValue(portNumber, col) == LOW)
             {
                 pressed = KPD_KEYS[row - ROW_START][col - COL_START];
-                _delay_ms(10);
+                _delay_ms(70);
             }
         }
         DIO_voidSetPinValue(portNumber, row, HIGH);

@@ -1,5 +1,6 @@
 #include "STD_TYPES.h"
 #include "DIO_interface.h"
+#include "DIO_private.h"
 #include "BTN_interface.h"
 
 void BTN_voidInit(u8 portNumber, u8 pinNumber)

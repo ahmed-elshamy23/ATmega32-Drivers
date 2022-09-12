@@ -5,6 +5,6 @@
 
 #define OC0_MODE OC0_NONINVERTING
 
-#define TIMER0_PRESCALER 1
+#define TIMER0_PRESCALER 8
 
 #endif
