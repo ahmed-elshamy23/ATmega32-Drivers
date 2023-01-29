@@ -152,7 +152,7 @@ void USART_voidSendStringWithChecksum(u8 *string)
 u8 USART_voidReceiveStringWithChecksum(u8 *string, u8 terminateCharacter)
 {
     u8 i = 0;
-    u16 calculatedSum = 0, receivedSum;
+    u16 calculatedSum = 0, receivedSum = 0;
     string[i] = USART_voidReceiveData();
     calculatedSum += string[i];
     while (string[i] != terminateCharacter)
@@ -209,7 +209,7 @@ void USART_voidInterruptDisable(u8 interrupt)
     }
 }
 
-void USART_voidSetCAllback(u8 interrupt, void (*ptr)())
+void USART_voidSetCallback(u8 interrupt, void (*ptr)())
 {
     switch (interrupt)
     {

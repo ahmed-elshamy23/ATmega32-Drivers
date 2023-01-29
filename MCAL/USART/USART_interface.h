@@ -29,7 +29,7 @@ void USART_voidInterruptEnable(u8 interrupt);
 
 void USART_voidInterruptDisable(u8 interrupt);
 
-void USART_voidSetCAllback(u8 interrupt, void (*ptr)());
+void USART_voidSetCallback(u8 interrupt, void (*ptr)());
 
 void USART_EMPTY_ISR() __attribute__((signal));
 
