@@ -21,9 +21,9 @@ void USART_voidReceiveString(u8 *string, u8 terminateCharacter);
 
 void USART_voidSendStringWithChecksum(u8 *string);
 
-u8 USART_voidReceiveStringWithChecksum(u8 *string, u8 terminateCharacter);
+u8 USART_u8ReceiveStringWithChecksum(u8 *string, u8 terminateCharacter);
 
-u16 USART_voidReceiveData();
+u16 USART_u16ReceiveData();
 
 void USART_voidInterruptEnable(u8 interrupt);
 
@@ -39,8 +39,8 @@ void USART_RX_COMPLETE_ISR() __attribute__((signal));
 
 void USART_initStack(usart_stack *s);
 
-u8 USART_stackPush(usart_stack *s, u8 data);
+u8 USART_u8stackPush(usart_stack *s, u8 data);
 
-u8 USART_stackPop(usart_stack *s);
+u8 USART_u8stackPop(usart_stack *s);
 
 #endif

@@ -149,7 +149,7 @@ void USART_voidSendStringWithChecksum(u8 *string)
     USART_voidSendData((u8)(sum >> 8));
 }
 
-u8 USART_voidReceiveStringWithChecksum(u8 *string, u8 terminateCharacter)
+u8 USART_u8ReceiveStringWithChecksum(u8 *string, u8 terminateCharacter)
 {
     u8 i = 0;
     u16 calculatedSum = 0, receivedSum = 0;
@@ -170,7 +170,7 @@ u8 USART_voidReceiveStringWithChecksum(u8 *string, u8 terminateCharacter)
         return 0;
 }
 
-u16 USART_voidReceiveData()
+u16 USART_u16ReceiveData()
 {
     while (!GET_BIT(UCSRA, RXC))
         ;
@@ -257,7 +257,7 @@ void initStack(usart_stack *s)
     s->sp = -1;
 }
 
-u8 stackPush(usart_stack *s, u8 data)
+u8 USART_u8stackPush(usart_stack *s, u8 data)
 {
     if (s->sp == STACK_SIZE - 1)
         return 1;
@@ -269,7 +269,7 @@ u8 stackPush(usart_stack *s, u8 data)
     }
 }
 
-u8 stackPop(usart_stack *s)
+u8 USART_u8stackPop(usart_stack *s)
 {
     if (s->sp == -1)
     {

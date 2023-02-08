@@ -7,7 +7,7 @@ void SPI_voidInit();
 
 void SPI_voidSendData(u8 data);
 
-u8 SPI_voidReceiveData();
+u8 SPI_u8ReceiveData();
 
 void SPI_voidSendString(u8 *string);
 

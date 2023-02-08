@@ -83,7 +83,7 @@ void SPI_voidSendData(u8 data)
     SET_BIT(PORTB_REG, SS_PIN);
 }
 
-u8 SPI_voidReceiveData()
+u8 SPI_u8ReceiveData()
 {
     while (!GET_BIT(SPSR, SPIF))
         ;
