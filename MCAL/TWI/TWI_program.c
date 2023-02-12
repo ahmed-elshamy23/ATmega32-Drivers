@@ -38,10 +38,6 @@ void TWI_voidSetNodeAddress(u8 address)
 void TWI_voidMasterWrite(u8 data, u8 address)
 {
     u8 TWCR_temp = 0;
-    SET_BIT(TWCR_temp, TWEN);
-    SET_BIT(TWCR_temp, TWSTA);
-    SET_BIT(TWCR_temp, TWINT);
-    TWCR = TWCR_temp;
     while (!GET_BIT(TWCR, TWINT))
         ;
     TWDR = ((u16)address << 1) | WRITE_BIT;
@@ -63,10 +59,6 @@ void TWI_voidMasterWrite(u8 data, u8 address)
 u8 TWI_u8MasterRead(u8 address)
 {
     u8 TWCR_temp = 0, receivedData = 0xFF;
-    SET_BIT(TWCR_temp, TWEN);
-    SET_BIT(TWCR_temp, TWSTA);
-    SET_BIT(TWCR_temp, TWINT);
-    TWCR = TWCR_temp;
     while (!GET_BIT(TWCR, TWINT))
         ;
     TWDR = ((u16)address << 1) | READ_BIT;
@@ -119,6 +111,15 @@ u8 TWI_u8SlaveRead()
     SET_BIT(TWCR_temp, TWEA);
     TWCR = TWCR_temp;
     return receivedData;
+}
+
+void TWI_voidSendStartCondition()
+{
+    u8 TWCR_temp = 0;
+    SET_BIT(TWCR_temp, TWEN);
+    SET_BIT(TWCR_temp, TWINT);
+    SET_BIT(TWCR_temp, TWSTA);
+    TWCR = TWCR_temp;
 }
 
 void TWI_voidSendStopCondition()

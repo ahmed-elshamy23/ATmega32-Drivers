@@ -15,6 +15,8 @@ void TWI_voidSlaveWrite(u8 data);
 
 u8 TWI_u8SlaveRead();
 
+void TWI_voidSendStartCondition();
+
 void TWI_voidSendStopCondition();
 
 void TWI_voidSendString(u8 *string, u8 address);
